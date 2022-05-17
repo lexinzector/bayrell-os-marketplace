@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <template>
-    <uid>info.bylex.blank</uid>
-    <name>Blank Template</name>
-    <version>1.0</version>
+    <uid>info.bylex.redis</uid>
+    <name>Redis</name>
+    <version>7.0.0</version>
     <maintainer>Alexey (LexInZector) Mikhalev &lt;lexin.ucoz.ru@gmail.com&gt;</maintainer>
-    <marketplace>https://cloud_os.bayrell.org/</marketplace>
-    <xml name="github.com">https://raw.githubusercontent.com/lexinzector/bayrell-os-marketplace/main/info.bylex.blank.xml</xml>
-    <date>2022-05-17T19:48:00+06:00</date>
+    <link name="Docker image">https://hub.docker.com/_/redis</link>
+    <date>2022-05-17T21:17:00+06:00</date>
     <yaml>
         <services>
             <_var_app_name_>
-                <image>_var_image_</image>
+                <image>docker.io/redis:7.0.0</image>
                 <hostname>{{.Service.Name}}.{{.Task.ID}}.local</hostname>
                 <environment>
                 </environment>
-                <volumes></volumes>
             </_var_app_name_>
         </services>
         <volumes>
@@ -22,11 +20,6 @@
         </volumes>
     </yaml>
     <variables>
-        <variable>
-            <name>_var_image_</name>
-            <label>Image</label>
-            <type>string</type>
-        </variable>
     </variables>
     <modificators>
         <li>org.bayrell.modificator.cloud_os</li>
