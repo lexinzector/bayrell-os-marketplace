@@ -31,3 +31,35 @@
         </operations>
     </patch>
 </template>
+<template>
+    <uid>info.bylex.redis</uid>
+    <name>Redis</name>
+    <version>7.0.0-alpine3.15</version>
+    <maintainer>Alexey (LexInZector) Mikhalev &lt;lexin.ucoz.ru@gmail.com&gt;</maintainer>
+    <link name="Docker image">https://hub.docker.com/_/redis</link>
+    <date>2022-05-17T21:17:00+06:00</date>
+    <yaml>
+        <services>
+            <_var_app_name_>
+                <image>docker.io/redis:7.0.0-alpine3.15</image>
+                <hostname>{{.Service.Name}}.{{.Task.ID}}.local</hostname>
+                <environment>
+                </environment>
+            </_var_app_name_>
+        </services>
+        <volumes>
+            <_var_app_name_ />
+        </volumes>
+    </yaml>
+    <variables>
+    </variables>
+    <modificators>
+        <li>org.bayrell.modificator.cloud_os</li>
+        <li>org.bayrell.modificator.deploy_hostname</li>
+    </modificators>
+    <patch>
+        <name>Template patch</name>
+        <operations>
+        </operations>
+    </patch>
+</template>
