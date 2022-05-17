@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+	<uid>org.bayrell.docker_registry_ui</uid>
+	<name>Docker Registry UI</name>
+	<version>2.7.1</version>
+	<maintainer>Ildar &lt;ildar@bayrell.org&gt;</maintainer>
+	<marketplace>https://cloud.bayrell.org/</marketplace>
+	<link name="Docker image">https://hub.docker.com/r/bayrell/docker_registry_ui</link>
+	<link name="Docker image source code">https://github.com/bayrell-os/docker_registry_ui</link>
+	<date>2022-05-17T22:45:00+06:00</date>
+	<yaml>
+		<services>
+			<_var_app_name_>
+				<image>bayrell/docker_registry_ui:2.7.1</image>
+				<hostname>{{.Service.Name}}.{{.Task.ID}}.local</hostname>
+        <volumes>_var_app_name_:/data</volumes>
+			</_var_app_name_>
+		</services>
+		<volumes>
+			<_var_app_name_ />
+		</volumes>
+	</yaml>
+	<variables></variables>
+	<modificators>
+		<li>org.bayrell.modificator.cloud_os</li>
+		<li>org.bayrell.modificator.deploy_hostname</li>
+	</modificators>
+	<patch>
+		<name>Template patch</name>
+		<operations></operations>
+	</patch>
+</template>

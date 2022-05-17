@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+    <uid>info.bylex.minio</uid>
+    <name>Minio</name>
+    <version>RELEASE.2021-06-17T00-10-46Z</version>
+    <maintainer>Alexey (LexInZector) Mikhalev &lt;lexin.ucoz.ru@gmail.com&gt;</maintainer>
+    <marketplace>https://cloud.bayrell.org/</marketplace>
+    <link name="Docker image">https://hub.docker.com/r/minio/minio</link>
+    <link name="Docker image source code">https://github.com/minio/minio</link>
+    <date>2022-05-17T23:47:00+06:00</date>
+    <yaml>
+	<services>
+	    <_var_app_name_>
+		<image>minio/minio:RELEASE.2021-06-17T00-10-46Z</image>
+		<hostname>{{.Service.Name}}.{{.Task.ID}}.local</hostname>
+		<environment>
+		    <MINIO_ACCESS_KEY>_var_minio_access_key_</MINIO_ACCESS_KEY>
+		    <MINIO_SECRET_KEY>_var_minio_secret_key_</MINIO_SECRET_KEY>
+		</environment>
+		<command>server --address "0.0.0.0:80" /data</command>
+		<volumes>_var_app_name_:/data</volumes>
+	    </_var_app_name_>
+	</services>
+	<volumes>
+	    <_var_app_name_ />
+	</volumes>
+    </yaml>
+    <variables>
+	<variable>
+	    <name>_var_minio_access_key_</name>
+	    <label>Minio Access Key</label>
+	    <type>string</type>
+	</variable>
+	<variable>
+	    <name>_var_minio_secret_key_</name>
+	    <label>Minio Secret Key</label>
+	    <type>string</type>
+	</variable>
+    </variables>
+    <modificators>
+	<li>org.bayrell.modificator.cloud_os</li>
+	<li>org.bayrell.modificator.deploy_hostname</li>
+    </modificators>
+    <patch>
+	<name>Template patch</name>
+	<operations></operations>
+    </patch>
+</template>

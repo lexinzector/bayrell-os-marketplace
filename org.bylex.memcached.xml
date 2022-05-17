@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+    <uid>info.bylex.memcached</uid>
+    <name>Memcached</name>
+    <version>1.6-22.04_beta</version>
+    <maintainer>Alexey (LexInZector) Mikhalev &lt;lexin.ucoz.ru@gmail.com&gt;</maintainer>
+    <marketplace>https://cloud.bayrell.org/</marketplace>
+    <link name="Docker image">https://hub.docker.com/r/ubuntu/memcached</link>
+    <date>2022-05-17T23:39:00+06:00</date>
+    <yaml>
+	<services>
+	    <_var_app_name_>
+		<image>ubuntu/memcached:1.6-22.04_beta</image>
+		<hostname>{{.Service.Name}}.{{.Task.ID}}.local</hostname>
+	    </_var_app_name_>
+	</services>
+    </yaml>
+    <variables></variables>
+    <modificators>
+	<li>org.bayrell.modificator.cloud_os</li>
+	<li>org.bayrell.modificator.deploy_hostname</li>
+    </modificators>
+    <patch>
+	<name>Template patch</name>
+	<operations></operations>
+    </patch>
+</template>
