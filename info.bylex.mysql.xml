@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+    <uid>info.bylex.mysql</uid>
+    <name>MySQL</name>
+    <version>5.7.36</version>
+    <maintainer>Alexey (LexInZector) Mikhalev &lt;lexin.ucoz.ru@gmail.com&gt;</maintainer>
+    <marketplace>https://cloud.bayrell.org/</marketplace>
+    <link name="Docker hub">https://hub.docker.com/_/mysql</link>
+    <date>2022-06-25T21:07:00+06:00</date>
+    <yaml>
+	<services>
+	    <_var_app_name_>
+		<image>docker.io/mysql:5.7.36</image>
+		<environment>
+		    <MYSQL_ROOT_PASSWORD>_var_mysql_password_</MYSQL_ROOT_PASSWORD>
+		</environment>
+		<command>--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --sql-mode="" --ft_min_word_len=1</command>
+		<volumes>_var_app_name_:/var/lib/mysql</volumes>
+	    </_var_app_name_>
+	</services>
+	<volumes>
+	    <_var_app_name_ />
+	</volumes>
+    </yaml>
+    <variables>
+	<variable>
+	    <name>_var_mysql_password_</name>
+	    <label>MySQL root password</label>
+	    <type>string</type>
+	</variable>
+    </variables>
+    <modificators>
+	<li>org.bayrell.modificator.cloud_os</li>
+	<li>org.bayrell.modificator.deploy_hostname</li>
+    </modificators>
+    <patch>
+	<name>Template patch</name>
+	<operations>
+	</operations>
+    </patch>
+</template>
