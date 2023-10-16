@@ -3,8 +3,14 @@
     <uid>info.bylex.blank</uid>
     <name>Blank Template</name>
     <version>1.0</version>
+	<branch>8.0</branch>
     <maintainer>Alexey (LexInZector) Mikhalev &lt;lexin.ucoz.ru@gmail.com&gt;</maintainer>
     <marketplace>https://cloud_os.bayrell.org/</marketplace>
+	<arch>amd64</arch>
+	<arch>arm64v8</arch>
+	<arch>arm32v7</arch>
+	<link name="Docker hub">https://hub.docker.com/r/lexinzector/alpine_php_fpm</link>
+	<link name="Github">https://github.com/lexinzector/alpine_php_fpm</link>
     <xml name="github.com">https://raw.githubusercontent.com/lexinzector/bayrell-os-marketplace/main/info.bylex.blank.xml</xml>
     <date>2022-05-17T19:48:00+06:00</date>
     <yaml>
