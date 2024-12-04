@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+	<uid>info.bylex.alpine_php_fpm</uid>
+	<name>PHP-FPM alpine (bylex)</name>
+	<version>5.6-3</version>
+	<branch>5.6</branch>
+	<maintainer>Alexey Mikhalev &lt;lexin.ucoz.ru@gmail.com&gt;</maintainer>
+	<marketplace>https://cloud.bayrell.org/</marketplace>
+	<arch>amd64</arch>
+	<arch>arm64v8</arch>
+	<arch>arm32v6</arch>
+	<link name="Docker hub">https://hub.docker.com/r/lexinzector/alpine_php_fpm</link>
+	<link name="Github">https://github.com/lexinzector/alpine_php_fpm</link>
+	<xml name="github.com" priority="10">https://raw.githubusercontent.com/lexinzector/bayrell-os-marketplace/main/alpine_php_fpm/5.6-3/info.bylex.alpine_php_fpm.xml</xml>
+	<date>2024-12-04T19:32:00+05:00</date>
+	<yaml>
+		<services>
+			<_var_app_name_>
+				<image>docker.io/lexinzector/alpine_php_fpm:5.6-3</image>
+				<hostname>{{.Service.Name}}.{{.Task.ID}}.local</hostname>
+				<environment>
+					<WWW_UID>_var_www_uid_</WWW_UID>
+					<WWW_GID>_var_www_gid_</WWW_GID>
+					<DOCUMENT_ROOT>_var_folder_document_root_</DOCUMENT_ROOT>
+				</environment>
+				<volumes>_var_app_name_:/data</volumes>
+				<volumes>_var_folder_www_:/var/www/html</volumes>
+			</_var_app_name_>
+		</services>
+    <volumes>
+		<_var_app_name_ />
+    </volumes>
+	</yaml>
+	<variables>
+		<variable>
+			<name>_var_app_name_</name>
+			<label>App name</label>
+			<type>string</type>
+		</variable>
+		<variable>
+			<name>_var_www_uid_</name>
+			<label>www user id</label>
+			<type>string</type>
+			<default>800</default>
+		</variable>
+		<variable>
+			<name>_var_www_gid_</name>
+			<label>www group id</label>
+			<type>string</type>
+			<default>800</default>
+		</variable>
+		<variable>
+			<name>_var_folder_www_</name>
+			<label>Project location on Host</label>
+			<type>string</type>
+		</variable>
+		<variable>
+			<name>_var_folder_document_root_</name>
+			<label>Document root</label>
+			<default>/var/www/html</default>
+			<type>string</type>
+		</variable>
+	</variables>
+	<modificators>
+		<li>org.bayrell.modificator.cloud_os</li>
+		<li>org.bayrell.modificator.deploy_hostname</li>
+	</modificators>
+	<patch>
+		<name>Template patch</name>
+		<operations>
+		</operations>
+	</patch>
+</template>
